@@ -1,0 +1,21 @@
+.box-container{
+    height:400px;
+    width:500px;
+    /*background-color: yellow;*/
+    border:solid 2px black;
+    margin:10px;
+
+}
+.a,.b{
+    height: 100px;
+    width:200px;
+    border:solid 2px black;
+    margin:10px;
+ 
+}
+.a{
+     background-image: url("/images/upcasting-and-downcasting-in-java4.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: left bottom;
+}

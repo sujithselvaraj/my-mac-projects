@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            #payment-request {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Bank Application</h3>
+        <div id="payment-request">
+            <p>New Payment Request!</p>
+            <button onClick="action('Success')">Approve</button>
+            <button onClick="action('Declined')">Reject</button>
+        </div>
+    </body>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        var socket = io();
+        var payment;
+        socket.on('/payment/initiate', (payload) => {
+            payment = payload;
+            document.getElementById("payment-request").style.display = "block";
+        });
+        function action(status) {
+            payment.status = status;
+            socket.emit('/payment/status', payment);
+            document.getElementById("payment-request").style.display = "none";
+        };
+    </script>
+</html>

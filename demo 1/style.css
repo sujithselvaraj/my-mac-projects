@@ -1,0 +1,27 @@
+body{
+    background-color: blueviolet;
+}
+p{
+  
+    background-image:url('https://en.wikipedia.org/wiki/Computer') ;
+}
+h1{
+    background-color: aqua;
+}
+
+a:link{
+    color:green;
+    background-color: transparent;
+    text-decoration:none;
+}
+a:visited{
+    color:pink;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+a:hover{
+    color:red;
+    background-color: transparent;
+    text-decoration: none;
+}

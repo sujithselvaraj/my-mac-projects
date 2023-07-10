@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <style>
+            #payment-status {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Ecom Website</h3>
+        <button id="payment-btn" onClick="initiatePayment()">Initiate Payment</button>
+        <p id="payment-status"></p>
+    </body>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        var socket = io();
+        socket.on('/payment/status', ({ status }) => {
+            document.getElementById("payment-status").innerHTML = "Payment " + status + "!";
+        });
+        function initiatePayment() {
+            document.getElementById("payment-btn").style.display = "none";
+            document.getElementById("payment-status").style.display = "block";
+            document.getElementById("payment-status").innerHTML = "Waiting for payment confirmation..";
+            socket.emit('/payment/initiate', {});
+        };
+    </script>
+</html>
